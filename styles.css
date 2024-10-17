@@ -1,0 +1,139 @@
+/* Global Styling */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('car5.jpg');
+    /* Car background image */
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+
+/* Header Section */
+
+header {
+    background-color: rgba(76, 175, 80, 0.9);
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Main section layout: Flexbox */
+
+main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    /* Two columns: one for map, one for route-planning */
+    height: 100%;
+    /* Occupies the remaining space of the screen */
+}
+
+
+/* Map Section: 50% width */
+
+#map {
+    flex: 1;
+    height: 40%;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+    align-items: flex-end;
+    /* margin-top: 50px; */
+    margin-bottom: 10px;
+}
+
+
+/* Route Planning Section: 50% width */
+
+.route-planning {
+    height: 300px;
+    flex: 1;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    padding: 50px;
+    margin: 250px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.route-planning h3 {
+    color: #4CAF50;
+}
+
+.route-planning input {
+    width: 50%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+/* Button Animations */
+
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        /* Stack the map and route planning section vertically */
+    }
+    #map,
+    .route-planning {
+        height: 50%;
+        /* Each will take 50% of the height when stacked */
+        width: 100%;
+    }
+    .route-planning {
+        margin: 0;
+        padding: 10px;
+    }
+}
+
+#button-container {
+    margin-left: 190px;
+    /* display: block; */
+    /* margin-bottom: 20px; */
+    margin-top: 20px;
+}
+
+
+/* .const {
+    display: flex;
+    flex-direction: column;
+    margin: 0 -50px;
+} */

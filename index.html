@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="eco2.jpeg" type="image/x-icon">
+    <title>EV Charging Station Finder</title>
+
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Leaflet.js for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+
+<body>
+
+    <header>
+        EV Charging Station Finder
+    </header>
+
+    <!-- Main content section with flexbox for layout -->
+    <main>
+        <!-- Map Display taking 50% of the screen -->
+        <div id="map"></div>
+
+        <!-- Route Planning Section taking the other 50% of the screen -->
+        <div class="const">
+            <div class="route-planning">
+                <h3>Plan Your Route</h3>
+                <p>Enter your start and end location to find charging stops along your route.</p>
+                <input type="text" id="start" placeholder="Start Location">
+                <input type="text" id="end" placeholder="End Location">
+                <button class="btn" onclick="planRoute()">Plan Route</button>
+
+                <div id="button-container"></div>
+            </div>
+            <!-- <div id="button-container"></div> -->
+        </div>
+
+
+
+
+
+    </main>
+
+    <!-- Leaflet Map and External JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
