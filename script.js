@@ -18,6 +18,20 @@ fetch('/api/stations')
     })
     .catch(error => console.error('Error fetching stations:', error));
 
+// Close dropdown if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.account-btn')) {
+        var dropdowns = document.getElementsByClassName("account-dropdown");
+        for (let i = 0; i < dropdowns.length; i++) {
+            let openDropdown = dropdowns[i];
+            if (openDropdown.style.display === "block") {
+                openDropdown.style.display = "none";
+            }
+        }
+    }
+};
+
+
 // Function to plan a route and display number of EV stations on the route
 function planRoute() {
     const start = document.getElementById("start").value;

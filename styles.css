@@ -31,6 +31,99 @@ header {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+.logo {
+    height: 35px;
+    width: 35px;
+}
+
+
+/* Your Account */
+
+.account-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.account-btn {
+    background-color: #007bff;
+    /* Primary blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.account-btn:hover {
+    background-color: #0056b3;
+    /* Darker blue */
+}
+
+.account-dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.account-dropdown a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.account-dropdown a:hover {
+    background-color: #f1f1f1;
+}
+
+
+/* Show dropdown on button hover */
+
+.account-menu:hover .account-dropdown {
+    display: block;
+}
+
+
+/* for sign in */
+
+.ha1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.ha2 {
+    margin-left: 500px;
+    font-weight: 100;
+    font-size: xx-large;
+}
+
+.sign-in-btn {
+    background-color: #007bff;
+    /* Primary blue color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 500px;
+}
+
+.sign-in-btn:hover {
+    background-color: #0056b3;
+    /* Darker shade on hover */
+}
+
 
 /* Main section layout: Flexbox */
 
@@ -48,7 +141,7 @@ main {
 
 #map {
     flex: 1;
-    height: 40%;
+    height: 45%;
     border-radius: 15px;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
     align-items: flex-end;
@@ -65,8 +158,8 @@ main {
     background: rgba(255, 255, 255, 0.85);
     border-radius: 10px;
     padding: 50px;
-    margin: 250px;
-    margin-right: 10px;
+    margin: 280px;
+    margin-right: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -130,3 +223,10 @@ main {
     /* margin-bottom: 20px; */
     margin-top: 20px;
 }
+
+
+/* .const {
+    display: flex;
+    flex-direction: column;
+    margin: 0 -50px;
+} */
