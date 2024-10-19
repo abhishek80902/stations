@@ -25,7 +25,6 @@
             width: 100%;
             height: 100%;
             background-color: #ffffff;
-            /* White background */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -34,7 +33,6 @@
         
         #preloader img {
             width: 100px;
-            /* Adjust the logo size */
             height: auto;
             margin-bottom: 20px;
         }
@@ -42,7 +40,52 @@
         #preloader h1 {
             font-size: 24px;
             color: #333;
-            /* Text color */
+        }
+        /* Review form styling */
+        
+        .review-section {
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin-top: 50px;
+            border-radius: 8px;
+        }
+        
+        .review-section h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .review-section label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .review-section input,
+        .review-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .review-section textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        
+        .review-section button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .review-section button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -53,9 +96,7 @@
     <div id="preloader">
         <div>
             <img src="Picture1.png" alt="VoltSeekers Logo">
-            <!-- Your logo here -->
             <h1>Loading... VoltSeekers</h1>
-            <!-- Your loading text here -->
         </div>
     </div>
 
@@ -77,12 +118,9 @@
         </a>
     </header>
 
-    <!-- Main content section with flexbox for layout -->
     <main>
-        <!-- Map Display taking 50% of the screen -->
         <div id="map"></div>
 
-        <!-- Route Planning Section taking the other 50% of the screen -->
         <div class="const">
             <div class="route-planning">
                 <h3>Plan Your Route</h3>
@@ -96,7 +134,23 @@
         </div>
     </main>
 
-    <!-- Leaflet Map and External JS -->
+    <!-- Review Section -->
+    <div class="review-section">
+        <h3 class="box">Leave a Review</h3>
+        <form id="reviewForm">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="email">Your Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="review">Your Review</label>
+            <textarea id="review" placeholder="Enter your review" required></textarea>
+
+            <button type="submit" class="sub">Submit Review</button>
+        </form>
+    </div>
+
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="script.js"></script>
     <script src="app.js"></script>
@@ -108,12 +162,19 @@
             preloader.style.display = "none";
         }
 
-        // Ensure that the preloader stays for at least 3 seconds
         window.addEventListener("load", function() {
-            // Set a minimum display time for the preloader (3 seconds)
-            setTimeout(hidePreloader, 3000); // 3000 milliseconds = 3 seconds
+            setTimeout(hidePreloader, 3000);
+        });
+
+        // Handle form submission for review
+        document.getElementById('reviewForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert("Thank you for your review!");
+            // Optionally: Add code here to handle the form data (e.g., send it to a server)
+            document.getElementById('reviewForm').reset(); // Clear the form after submission
         });
     </script>
+
 </body>
 
 </html>

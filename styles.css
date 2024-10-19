@@ -224,6 +224,24 @@ main {
     margin-top: 20px;
 }
 
+#name {
+    width: 50%;
+}
+
+.review-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    background-color: lightgreen;
+    width: 15%;
+    text-align: center;
+    border-radius: 20%;
+}
+
 
 /* .const {
     display: flex;
