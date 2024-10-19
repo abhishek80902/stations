@@ -12,12 +12,54 @@
 
     <!-- Leaflet.js for maps -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <style>
+        /* Preloader styling */
+        
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            /* White background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        
+        #preloader img {
+            width: 100px;
+            /* Adjust the logo size */
+            height: auto;
+            margin-bottom: 20px;
+        }
+        
+        #preloader h1 {
+            font-size: 24px;
+            color: #333;
+            /* Text color */
+        }
+    </style>
 </head>
 
 <body>
 
-    <header class="ha1">
+    <!-- Preloader Section -->
+    <div id="preloader">
+        <div>
+            <img src="Picture1.png" alt="VoltSeekers Logo">
+            <!-- Your logo here -->
+            <h1>Loading... VoltSeekers</h1>
+            <!-- Your loading text here -->
+        </div>
+    </div>
 
+    <header class="ha1">
         <div class="account-menu">
             <button class="account-btn">Your Account</button>
             <div class="account-dropdown">
@@ -33,7 +75,6 @@
         <a href="login.html">
             <button class="sign-in-btn">Sign In</button>
         </a>
-
     </header>
 
     <!-- Main content section with flexbox for layout -->
@@ -52,19 +93,27 @@
 
                 <div id="button-container"></div>
             </div>
-            <!-- <div id="button-container"></div> -->
         </div>
-
-
-
-
-
     </main>
 
     <!-- Leaflet Map and External JS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="script.js"></script>
     <script src="app.js"></script>
+
+    <script>
+        // Function to hide the preloader after 3 seconds
+        function hidePreloader() {
+            const preloader = document.getElementById("preloader");
+            preloader.style.display = "none";
+        }
+
+        // Ensure that the preloader stays for at least 3 seconds
+        window.addEventListener("load", function() {
+            // Set a minimum display time for the preloader (3 seconds)
+            setTimeout(hidePreloader, 3000); // 3000 milliseconds = 3 seconds
+        });
+    </script>
 </body>
 
 </html>

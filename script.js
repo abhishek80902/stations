@@ -1,10 +1,50 @@
-// Initialize the map
 var map = L.map('map').setView([28.6139, 77.2090], 13);
 
 // Tile layer from OpenStreetMap
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
 }).addTo(map);
+
+// Fetch user's current location
+function getCurrentLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+
+// Update map to center on user's current position
+function showPosition(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+    // Set the map view to user's current location
+    map.setView([latitude, longitude], 13);
+
+    // Add a marker for the current location
+    L.marker([latitude, longitude]).addTo(map)
+        .bindPopup("You are here")
+        .openPopup();
+}
+
+// Error handling for geolocation
+function showError(error) {
+    switch (error.code) {
+        case error.PERMISSION_DENIED:
+            alert("User denied the request for Geolocation.");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            alert("Location information is unavailable.");
+            break;
+        case error.TIMEOUT:
+            alert("The request to get user location timed out.");
+            break;
+        case error.UNKNOWN_ERROR:
+            alert("An unknown error occurred.");
+            break;
+    }
+}
 
 // Fetch available stations from the backend
 fetch('/api/stations')
@@ -30,7 +70,6 @@ window.onclick = function(event) {
         }
     }
 };
-
 
 // Function to plan a route and display number of EV stations on the route
 function planRoute() {
@@ -74,7 +113,6 @@ function planRoute() {
         prebookButton.style.backgroundColor = "green";
         prebookButton.style.color = "white";
         prebookButton.style.padding = "10px";
-        // prebookButton.style.marginRight = "500px";
         prebookButton.style.border = "none";
         prebookButton.style.cursor = "pointer";
         prebookButton.style.fontSize = "16px";
@@ -89,7 +127,7 @@ function planRoute() {
 
         // Click event to show booking confirmation
         prebookButton.addEventListener("click", function() {
-            alert("Great Your nearest slot is booked!");
+            alert("Great Your nearest slot is booked! You can also select the charger type");
         });
 
         // Append the button to the container
@@ -99,3 +137,8 @@ function planRoute() {
         alert("Please enter both start and end locations.");
     }
 }
+
+// Automatically fetch and set the current location when the page loads
+window.onload = function() {
+    getCurrentLocation();
+};
